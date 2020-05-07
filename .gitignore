@@ -1,0 +1,14 @@
+*~
+places
+\.recentf
+\.smex-items
+projectile-bookmarks.eld
+projectile.cache
+auto-save-list
+backups
+elpa/
+eshell
+.emacs.desktop
+.emacs.desktop.lock
+saved-elpa
+ido.last
