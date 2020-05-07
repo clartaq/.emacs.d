@@ -7,6 +7,13 @@
 
 (require 'package)
 
+(setq package-enable-at-startup nil)
+
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages") t)
+
+(package-initialize)
+
 (defun require-package (package)
   "If not already installed, install the specified PACKAGE.
 This function has largely been superseded by 'use-package'."
@@ -17,13 +24,7 @@ This function has largely been superseded by 'use-package'."
 	(package-refresh-contents))
       (package-install package))))
 
-(add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/"))
-
-(package-initialize)
-
-;; Install use-package in case it does not exist yet.  The use-pacakge
-;; software will install all of the other packages as requred.
+;; This software will install all of the other packages as required.
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
