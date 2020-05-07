@@ -18,7 +18,28 @@
 (use-package markdown-mode
   :ensure t
   :commands (gfm-mode)
+  ;; Using MultiMarkdown as the processor.
+  ;; It was installed externally with brew.
   :init (setq markdown-command "multimarkdown"))
+
+;;;
+;;; Initialization for the Janet language.
+;;;
+
+(use-package janet-mode
+  :ensure t)
+
+;; (use-package inf-janet
+;;   :ensure t
+;;   :config
+;;   (setq inf-janet-program "usr/local/bin/janet")
+;;   (add-hook 'janet-mode-hook #'inf-janet-minor-mode))
+
+;;;
+;;; Load config for Clojure/Script.
+;;;
+
+(use-package cider)
 
 ;;;
 ;;; Initialize configuration for rust.
