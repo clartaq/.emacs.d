@@ -1,4 +1,4 @@
-This is just a set of simple emacs configuration files.
+This is just a set of simple emacs configuration files that I use for programming and writing.
 
 This will change often, since I am still learning. Don't put too much stock in
 it since my emacs-fu is quite weak.
