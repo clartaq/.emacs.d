@@ -11,7 +11,18 @@
 
 (require 'init-elpa)
 
-;; Initialize configuration for rust.
+;;;
+;;; Configuration for Markdown.
+;;;
+
+(use-package markdown-mode
+  :ensure t
+  :commands (gfm-mode)
+  :init (setq markdown-command "multimarkdown"))
+
+;;;
+;;; Initialize configuration for rust.
+;;;
 
 ;; Get the rust major mode.
 (use-package rust-mode

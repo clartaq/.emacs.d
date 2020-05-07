@@ -12,3 +12,5 @@ eshell
 .emacs.desktop.lock
 saved-elpa
 ido.last
+
+*.md#
