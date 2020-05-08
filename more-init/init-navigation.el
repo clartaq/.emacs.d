@@ -8,7 +8,7 @@
 
 (require 'init-elpa)
 
-;; Setup ido completions everywhere they can be used without messing someething
+;; Setup ido completions everywhere they can be used without messing something
 ;; up.
 (use-package ido-completing-read+
   :ensure t
@@ -54,4 +54,3 @@
 
 (provide 'init-navigation)
 ;;; init-navigation.el ends here
-
