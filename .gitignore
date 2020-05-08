@@ -14,3 +14,5 @@ saved-elpa
 ido.last
 
 *.md#
+
+transient/

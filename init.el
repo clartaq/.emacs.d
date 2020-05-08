@@ -23,10 +23,9 @@
 (require 'init-editing)
 (require 'init-company-mode)
 (require 'init-navigation)
+(require 'init-other-tools)
 (require 'init-miscellaneous)
 (require 'init-languages)
 
 (provide 'init)
 ;;; init.el ends here
-
-
