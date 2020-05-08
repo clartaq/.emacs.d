@@ -29,18 +29,28 @@
   :config (add-hook 'prog-mode-hook (lambda () (idle-highlight-mode t))))
 
 ;; Use a pretty theme.
-(use-package atom-one-dark-theme
- :ensure t
- :config (load-theme 'atom-one-dark t))
 
-;; (use-package doom-themes
-;;   :config
-;;   (let ((chosen-theme 'doom-one-light))
-;;     (doom-themes-visual-bell-config)
-;;     (doom-themes-org-config)
-;;     (setq doom-challenger-deep-brighter-comments t
-;;           doom-challenger-deep-brighter-modeline t)
-;;     (load-theme chosen-theme)))
+;; Because we confused emacs with the location of the customization file,
+;; we have to tell it explicitly that themes are safe.
+(setq custom-safe-themes t)
+
+;; (use-package atom-one-dark-theme
+;;  :ensure t
+;;  :config (load-theme 'atom-one-dark t))
+
+(use-package doom-themes
+  :ensure t
+  :config
+  (let ((chosen-theme 'doom-dracula))
+    (doom-themes-visual-bell-config)
+    (doom-themes-org-config)
+    (setq doom-challenger-deep-brighter-comments t
+          doom-challenger-deep-brighter-modeline t)
+    (load-theme chosen-theme)))
+
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1))
 
 ;; Restore buffers that were being edited last time. From the emacs wiki.
 (require 'desktop)
@@ -54,21 +64,22 @@ Don't call 'desktop-save-in-desktop-dir', as it prints a message."
 (add-hook 'auto-save-hook 'my-desktop-save)
 
 ;; Whoohoo! Tabs!
-;; (use-package centaur-tabs
-;;   :demand
-;;   :config
-;;   (centaur-tabs-mode t)
-;;   :custom
-;;   (centaur-tabs-gray-out-icons 'buffer)
-;;   (centaur-tabs-style "rounded")
-;;   (centaur-tabs-height 36)
-;;   (centaur-tabs-set-icons t)
-;;   (centaur-tabs-set-modified-marker t)
-;;   (centaur-tabs-modified-marker "●")
-;;   (centaur-tabs-buffer-groups-function #'centaur-tabs-projectile-buffer-groups)
+(use-package centaur-tabs
+  :ensure t
+  :demand
+  :config
+  (centaur-tabs-mode t)
+  :custom
+  (centaur-tabs-gray-out-icons 'buffer)
+  (centaur-tabs-style "rounded")
+  (centaur-tabs-height 36)
+  (centaur-tabs-set-icons t)
+  (centaur-tabs-set-modified-marker t)
+  (centaur-tabs-modified-marker "●")
+  (centaur-tabs-buffer-groups-function #'centaur-tabs-projectile-buffer-groups)
 
-;;   :bind (("s-{" . #'centaur-tabs-backward)
-;; 	   ("s-}" . #'centaur-tabs-forward)))
+  :bind (("s-{" . #'centaur-tabs-backward)
+	   ("s-}" . #'centaur-tabs-forward)))
 
 ;; Lots of miscellaneous, simple settings.
 (setq
