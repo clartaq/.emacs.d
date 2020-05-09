@@ -72,7 +72,7 @@
 (use-package projectile
   :bind (("C-c k" . #'projectile-kill-buffers)
          ("C-c M" . #'projectile-compile-project))
-  :config (projectile-mode))
+  :config (projectile-mode +1))
 
 (provide 'init-other-tools)
 ;;; init-other-tools.el ends here

@@ -16,3 +16,5 @@ ido.last
 *.md#
 
 transient/
+
+forge-database.sqlite
