@@ -24,15 +24,18 @@
                   (interactive)
                   (dired "~/")))
 
-(defun dired-up-directory-same-buffer ()
+(defun dired-up-directory-in-the-same-buffer ()
   "Go up in the same buffer."
+  (interactive)
   (find-alternate-file ".."))
+
 
 (defun my-dired-mode-hook ()
   "Disable a dumb warning on mac. Handle Return key more intelligently."
   (put 'dired-find-alternate-file 'disabled nil)
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
-  (define-key dired-mode-map (kbd "^") 'dired-up-directory-same-buffer))
+  (define-key dired-mode-map (kbd "<down-mouse-1>") 'dired-find-alternate-file)
+  (define-key dired-mode-map (kbd "^") 'dired-up-directory-in-the-same-buffer))
 
 (add-hook 'dired-mode-hook #'my-dired-mode-hook)
 
