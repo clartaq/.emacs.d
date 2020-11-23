@@ -72,6 +72,9 @@
     (beginning-of-line)))
 
 (global-set-key (kbd "C-a") 'beginning-of-line-or-indentation)
+(global-set-key (kbd "<home>") 'beginning-of-line-or-indentation)
+
+(global-set-key (kbd "<end>") 'end-of-line)
 
 (provide 'init-editing)
 ;;; init-editing.el ends here

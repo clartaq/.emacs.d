@@ -42,6 +42,20 @@
 (use-package cider)
 
 ;;;
+;;; Load config for SBCL.
+;;;
+
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+  ;; Replace "sbcl" with the path to your implementation
+(setq inferior-lisp-program "sbcl")
+
+;;;
+;;; Load config for Chez Scheme.
+;;;
+
+(use-package geiser)
+
+;;;
 ;;; Initialize configuration for rust.
 ;;;
 

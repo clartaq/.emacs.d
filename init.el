@@ -7,7 +7,8 @@
 ;;; Code:
 
 ;; Stop custom from writing stuff into my init file.
-(setq custom-file (make-temp-file ""))
+(setq custom-file "~/.config/emacs-custom.el")
+(load custom-file)
 
 ;; Point to the rest of the initialization files.
 (add-to-list 'load-path (expand-file-name "more-init" user-emacs-directory))
