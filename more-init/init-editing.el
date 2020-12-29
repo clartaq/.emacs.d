@@ -71,10 +71,23 @@
       (back-to-indentation)
     (beginning-of-line)))
 
+;; I like the way IntelliJ and most Windows-based text editors
+;; handle the home and end key, moving the cursor to the
+;; beginning or end of the line, not the document.
 (global-set-key (kbd "C-a") 'beginning-of-line-or-indentation)
 (global-set-key (kbd "<home>") 'beginning-of-line-or-indentation)
 
 (global-set-key (kbd "<end>") 'end-of-line)
+
+;; I like the way IntelliJ lets me indent (format) the entire buffer
+;; with a single keystroke. Same thing here. I prefer this to them
+;; default "C-h" "\" since this doesn't lose the cursor position.
+(defun indent-buffer ()
+  "Indent the entire buffer with a single keystroke."
+  (interactive)
+  (save-excursion
+    (indent-region (point-min) (point-max) nil)))
+(global-set-key (kbd "M-s-l") 'indent-buffer)
 
 (provide 'init-editing)
 ;;; init-editing.el ends here

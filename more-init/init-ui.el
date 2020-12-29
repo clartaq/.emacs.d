@@ -129,15 +129,5 @@ Don't call 'desktop-save-in-desktop-dir', as it prints a message."
 ;; I'm too lazy to type extra characters. Accept 'y' in place of 'yes'.
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;; I like the way IntelliJ lets me indent (format) the entire buffer
-;; with a single keystroke. Same thing here. I prefer this to them
-;; default "C-h" "\" since this doesn't lose the cursor position.
-(defun indent-buffer ()
-  "Indent the entire buffer with a single keystroke."
-  (interactive)
-  (save-excursion
-    (indent-region (point-min) (point-max) nil)))
-(global-set-key (kbd "M-s-l") 'indent-buffer)
-
 (provide 'init-ui)
 ;;; init-ui ends here
