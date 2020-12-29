@@ -16,7 +16,7 @@
 (add-to-list 'load-path (expand-file-name "more-init" user-emacs-directory))
 
 ;; For some reason, this shows as a flycheck error.
-(require '~/.emacs.d/more-init/init-elpa)
+(require 'init-elpa)
 
 ;; macOS specific
 (use-package exec-path-from-shell
