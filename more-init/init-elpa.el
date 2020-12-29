@@ -11,8 +11,17 @@
 
 (setq package-enable-at-startup nil)
 
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages") t)
+;; Reworked to allow concurrent usage of multiple package repositories.
+;; Higher priority are loaded in preference to lower priority, even if
+;; the lower priority archive has a newer version.
+(setq package-archives
+      '(("GNU ELPA"     . "https://elpa.gnu.org/packages/")
+        ("MELPA Stable" . "https://stable.melpa.org/packages/")
+        ("MELPA"        . "https://melpa.org/packages/"))
+      package-archive-priorities
+      '(("MELPA Stable" . 10)
+        ("GNU ELPA"     . 5)
+        ("MELPA"        . 0)))
 
 (package-initialize)
 
