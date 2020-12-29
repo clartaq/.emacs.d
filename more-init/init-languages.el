@@ -9,6 +9,8 @@
 
 ;;; Code:
 
+(message "Enter init-languages.el")
+
 (require 'init-elpa)
 
 ;;;
@@ -53,6 +55,9 @@
 ;;; Load config for Chez Scheme.
 ;;;
 
+(add-to-list 'auto-mode-alist
+             '("\\.sls\\'" . scheme-mode)
+             '("\\.sc\\'" . scheme-mode))
 (use-package geiser)
 
 ;;;

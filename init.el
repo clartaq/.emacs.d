@@ -6,6 +6,8 @@
 
 ;;; Code:
 
+(message "Enter init.el")
+
 ;; Stop custom from writing stuff into my init file.
 (setq custom-file "~/.config/emacs-custom.el")
 (load custom-file)
@@ -13,7 +15,8 @@
 ;; Point to the rest of the initialization files.
 (add-to-list 'load-path (expand-file-name "more-init" user-emacs-directory))
 
-(require 'init-elpa)
+;; For some reason, this shows as a flycheck error.
+(require '~/.emacs.d/more-init/init-elpa)
 
 ;; macOS specific
 (use-package exec-path-from-shell

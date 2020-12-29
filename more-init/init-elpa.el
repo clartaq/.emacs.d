@@ -5,6 +5,8 @@
 
 ;;; Code:
 
+(message "Enter init-elpa.el")
+
 (require 'package)
 
 (setq package-enable-at-startup nil)
