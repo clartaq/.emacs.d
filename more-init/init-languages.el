@@ -11,7 +11,7 @@
 
 (message "Enter init-languages.el")
 
-(require 'init-elpa)
+;; (require 'init-elpa)
 
 ;;;
 ;;; Configuration for Markdown.
@@ -47,9 +47,13 @@
 ;;; Load config for SBCL.
 ;;;
 
-(load (expand-file-name "~/quicklisp/slime-helper.el"))
+;; Slime uses the 'cl' package, which has been deprecated.
+;; This is just commented out here for debugging to see
+;; if the warning disappears.
+
+;; (load (expand-file-name "~/quicklisp/slime-helper.el"))
   ;; Replace "sbcl" with the path to your implementation
-(setq inferior-lisp-program "sbcl")
+;; (setq inferior-lisp-program "sbcl")
 
 ;;;
 ;;; Load config for Chez Scheme.
