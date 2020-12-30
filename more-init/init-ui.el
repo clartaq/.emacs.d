@@ -130,4 +130,4 @@ Don't call 'desktop-save-in-desktop-dir', as it prints a message."
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (provide 'init-ui)
-;;; init-ui ends here
+;;; init-ui.el ends here

@@ -15,8 +15,8 @@
 ;; Higher priority are loaded in preference to lower priority, even if
 ;; the lower priority archive has a newer version.
 (setq package-archives
-      '(("GNU ELPA"     . "https://elpa.gnu.org/packages/")
-        ("MELPA Stable" . "https://stable.melpa.org/packages/")
+      '(("MELPA Stable" . "https://stable.melpa.org/packages/")
+        ("GNU ELPA"     . "https://elpa.gnu.org/packages/")
         ("MELPA"        . "https://melpa.org/packages/"))
       package-archive-priorities
       '(("MELPA Stable" . 10)

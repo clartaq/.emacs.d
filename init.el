@@ -13,7 +13,9 @@
 (load custom-file)
 
 ;; Point to the rest of the initialization files.
-(add-to-list 'load-path (expand-file-name "more-init" user-emacs-directory))
+(eval-and-compile
+  (add-to-list 'load-path (expand-file-name "more-init" user-emacs-directory)))
+(setq-default flycheck-emacs-lisp-load-path load-path)
 
 ;; For some reason, this shows as a flycheck error.
 (require 'init-elpa)
