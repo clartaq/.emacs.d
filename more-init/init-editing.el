@@ -80,7 +80,7 @@
 (global-set-key (kbd "<end>") 'end-of-line)
 
 ;; I like the way IntelliJ lets me indent (format) the entire buffer
-;; with a single keystroke. Same thing here. I prefer this to them
+;; with a single keystroke. Same thing here. I prefer this to the
 ;; default "C-h" "\" since this doesn't lose the cursor position.
 (defun indent-buffer ()
   "Indent the entire buffer with a single keystroke."
