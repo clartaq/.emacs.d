@@ -34,9 +34,9 @@
 ;; we have to tell it explicitly that themes are safe.
 (setq custom-safe-themes t)
 
-;; (use-package atom-one-dark-theme
-;;  :ensure t
-;;  :config (load-theme 'atom-one-dark t))
+ (use-package atom-one-dark-theme
+  :ensure t
+  :config (load-theme 'atom-one-dark t))
 
 (use-package doom-themes
   :ensure t
