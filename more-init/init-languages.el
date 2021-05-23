@@ -59,10 +59,15 @@
 ;;; Load config for Chez Scheme.
 ;;;
 
+(setq debug-on-error t)
+
+;;(use-package geiser-chez :ensure t)
+
 (add-to-list 'auto-mode-alist
-             '("\\.sls\\'" . scheme-mode)
-             '("\\.sc\\'" . scheme-mode))
-(use-package geiser)
+             '("\\.sls\\'" . scheme-mode))
+;;             '("\\.sc\\'" . scheme-mode))
+;;(use-package geiser)
+;;(use-package geiser-chez :ensure t)
 
 ;;;
 ;;; Initialize configuration for rust.
