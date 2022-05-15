@@ -1,4 +1,4 @@
-;;; package --- init-rust.el
+;;; package --- init-languages.el
 ;;;
 ;;; Commentary:
 ;;; Initialize auxilliary tools for convenient development with various
@@ -12,6 +12,31 @@
 (message "Enter init-languages.el")
 
 ;; (require 'init-elpa)
+
+;;;
+;;; Configuration for C.
+;;;
+
+(use-package clang-format
+  :ensure t)
+
+(global-set-key [C-M-tab] 'clang-format-region)
+(global-set-key [C-M-l] 'clang-format-buffer)
+(setq clang-format-style "google")
+
+;;;
+;;; Configuration for Java.
+;;
+
+(use-package lsp-java
+  :after lsp)
+
+;;;
+;;; Configuration for zig.
+;;;
+
+(use-package zig-mode
+  :ensure t)
 
 ;;;
 ;;; Configuration for Markdown.
@@ -51,15 +76,15 @@
 ;; This is just commented out here for debugging to see
 ;; if the warning disappears.
 
-;; (load (expand-file-name "~/quicklisp/slime-helper.el"))
-  ;; Replace "sbcl" with the path to your implementation
-;; (setq inferior-lisp-program "sbcl")
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+;; Replace "sbcl" with the path to your implementation
+(setq inferior-lisp-program "/usr/local/bin/sbcl")
 
 ;;;
 ;;; Load config for Chez Scheme.
 ;;;
 
-(setq debug-on-error t)
+;;(setq debug-on-error t)
 
 ;;(use-package geiser-chez :ensure t)
 
@@ -68,6 +93,14 @@
 ;;             '("\\.sc\\'" . scheme-mode))
 ;;(use-package geiser)
 ;;(use-package geiser-chez :ensure t)
+
+;;;
+;;; Initialize configuration for Pascal (Lazarus).
+;;;
+
+(add-to-list 'auto-mode-alist
+             '("\\.lpr\\'" . pascal-mode))
+(use-package lsp-pascal)
 
 ;;;
 ;;; Initialize configuration for rust.
@@ -100,6 +133,33 @@
 	     ;; Insert closing delimiter at the same time the opening delimiter
 	     ;; is inserted.
 	     (electric-pair-mode 1)))
+
+;; Configure for julia
+(use-package julia-mode
+  :ensure t)
+;; (require 'julia-mode)
+;;(push "/path/to/lsp-julia" load-path)
+(require 'lsp-julia)
+(require 'lsp-mode)
+;; ;; Configure lsp + julia
+(add-hook 'julia-mode-hook #'lsp-mode)
+(add-hook 'julia-mode-hook #'lsp)
+
+;;(setq lsp-julia-package-dir nil)
+;;(setq lsp-julia-flags '("-J~/.julia/compiled/v1.7/LanguageServer"))
+
+;;(use-package lsp-julia
+;;  :config
+;;  (setq lsp-julia-default-environment "~/.julia/environments/v1.7"))
+;;(require 'julia-mode)
+;;(add-hook 'julia-mode #'lsp-mode)
+
+;;(use-package lsp-mode
+;;  :hook ((c-mode java-mode julia-mode rust-mode markdown-mode scheme-mode lisp-mode janet-mode). lsp-deferred)
+;;  :commands lsp)
+
+(use-package lsp-ui
+  :commands lsp-ui-mode)
 
 (provide 'init-languages)
 ;;; init-languages ends here

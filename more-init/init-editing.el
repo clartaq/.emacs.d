@@ -76,18 +76,30 @@
 ;; beginning or end of the line, not the document.
 (global-set-key (kbd "C-a") 'beginning-of-line-or-indentation)
 (global-set-key (kbd "<home>") 'beginning-of-line-or-indentation)
-
 (global-set-key (kbd "<end>") 'end-of-line)
 
 ;; I like the way IntelliJ lets me indent (format) the entire buffer
 ;; with a single keystroke. Same thing here. I prefer this to the
 ;; default "C-h" "\" since this doesn't lose the cursor position.
-(defun indent-buffer ()
-  "Indent the entire buffer with a single keystroke."
+;; Revised to a version described by Bozhidar Batsov at
+;; https://emacsredux.com/blog/2013/03/27/indent-region-or-buffer/
+(defun er-indent-buffer ()
+  "Indent the currently visited buffer."
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
+(defun er-indent-region-or-buffer ()
+  "Indent a region if selected, otherwise the whole buffer."
   (interactive)
   (save-excursion
-    (indent-region (point-min) (point-max) nil)))
-(global-set-key (kbd "M-s-l") 'indent-buffer)
+    (if (region-active-p)
+        (progn
+          (indent-region (region-beginning) (region-end))
+          (message "Indented selected region."))
+      (progn
+        (er-indent-buffer)
+        (message "Indented buffer.")))))
+(global-set-key (kbd "C-M-\\") #'er-indent-region-or-buffer)
 
 (provide 'init-editing)
 ;;; init-editing.el ends here

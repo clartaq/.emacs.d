@@ -13,9 +13,10 @@ eshell
 .emacs.desktop.lock
 saved-elpa
 ido.last
-
 *.md#
-
 transient/
-
 forge-database.sqlite
+.dap-breakpoints
+.lsp-session-v1
+eclipse.jdt.ls/
+workspace/
