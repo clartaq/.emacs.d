@@ -15,7 +15,7 @@ saved-elpa
 ido.last
 *.md#
 transient/
-forge-database.sqlite
+**/forge-database*
 .dap-breakpoints
 .lsp-session-v1
 eclipse.jdt.ls/
