@@ -88,11 +88,23 @@
 
 ;;(use-package geiser-chez :ensure t)
 
+(message "Trying to set auto-mode-alist")
+
 (add-to-list 'auto-mode-alist
-             '("\\.sls\\'" . scheme-mode))
-;;             '("\\.sc\\'" . scheme-mode))
+             '("\\.sld\\'" . scheme-mode)
+             '("\\.sls\\'" . scheme-mode)
+             ;; Why does this cause an error?
+             ;;'("\\.sc\\'" . scheme-mode)
+             )
+
+(message "Done setting auto-mode-alist")
+
 ;;(use-package geiser)
 ;;(use-package geiser-chez :ensure t)
+
+;; Add Chibi library extension to list.
+;;(add-to-list 'auto-mode-alist
+;;             '("\\.sld\\'" . scheme-mode))
 
 ;;;
 ;;; Initialize configuration for Pascal (Lazarus).
@@ -126,7 +138,7 @@
 (add-hook 'rust-mode-hook  #'racer-mode)
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 (add-hook 'rust-mode-hook
-          '(lambda ()
+          #'(lambda ()
 	     (setq racer-cmd (concat (getenv "HOME") "/.cargo/bin/racer"))
 	     (setq racer-rust-src-path (concat (getenv "HOME") "/projects/rust/src"))
              (local-set-key (kbd "TAB") #'company-indent-or-complete-common)
